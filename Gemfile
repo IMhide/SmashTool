@@ -13,14 +13,16 @@ gem 'discordrb'
 gem 'graphql-client'
 gem 'awesome_print'
 gem 'dry-transaction'
+gem 'devise'
+gem 'activeadmin'
 
 group :development do
   gem 'bullet'
   gem 'i18n-debug', require: false
-  gem 'letter_opener_web'
   gem 'rubocop', '~> 0.57.2', require: false
   gem 'rubycritic', require: false
   gem 'listen'
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :development, :test, :fakeprod, :realprod do

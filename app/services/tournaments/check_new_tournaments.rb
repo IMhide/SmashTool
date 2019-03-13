@@ -17,7 +17,7 @@ class Tournaments::CheckNewTournaments < ::BaseService
 
   def notify_discord(input)
     input[:remote_tournaments].each do |tournament|
-      start_at = I18n.l(Time.at(tournament[:start_at]), format: :long)
+      start_at = I18n.l(tournament[:start_at], format: :long)
       ClientDiscord.execute do |builder|
         builder.content = 'Un nouveau tournois just appeared'
         builder.add_embed do |embed|
