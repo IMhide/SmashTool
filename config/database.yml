@@ -10,7 +10,6 @@ development:
   database: smashub_dev
 
 production:
-  database: smashub_prod
   url: <%= ENV['DATABASE_URL'] %>
     
 
