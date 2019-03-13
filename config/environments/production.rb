@@ -95,10 +95,10 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address              => 'smtp.sendgrid.net',
     :port                 => 587,
-      :domain               => 'smash-tools.fr',
-      :user_name            => 'apikey'
-      :password             => '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',
-      :authentication       => 'plain',
-      :enable_starttls_auto => true  }
+    :domain               => 'smash-tools.fr',
+    :user_name            => 'apikey',
+    :password             => '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',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
 
 end
