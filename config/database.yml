@@ -10,8 +10,9 @@ development:
   database: smashub_dev
 
 production:
-  <<: *default
   database: smashub_prod
+  url: ENV['DATABASE_URL']
+    
 
 test:
   <<: *default
