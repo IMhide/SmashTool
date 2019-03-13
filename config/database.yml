@@ -1,6 +1,3 @@
-production:
-  url: <%= ENV['DATABASE_URL'] %>
-
 default: &default
   adapter: postgresql
   host: localhost
@@ -10,9 +7,14 @@ default: &default
 
 development:
   <<: *default
+    
+  user: po2222stgres
   database: smashub_dev
 
-    
 test:
   <<: *default
+  user: posdfsdfsd2222stgres
   database: smashub_test
+
+production:
+  url: <%= ENV['DATABASE_URL'] %>
