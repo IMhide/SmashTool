@@ -15,6 +15,8 @@ gem 'awesome_print'
 gem 'dry-transaction'
 gem 'devise'
 gem 'activeadmin'
+gem 'twitter'
+gem 'bugsnag'
 
 group :development do
   gem 'bullet'
