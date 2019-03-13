@@ -16,8 +16,6 @@ class Tournaments::CheckNewTournaments < ::BaseService
   end
 
   def notify_discord(input)
-    puts input[:remote_tournaments].count
-    return
     input[:remote_tournaments].each do |tournament|
       start_at = I18n.l(Time.at(tournament[:start_at]), format: :long)
       ClientDiscord.execute do |builder|
