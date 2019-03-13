@@ -7,13 +7,10 @@ default: &default
 
 development:
   <<: *default
-    
-  user: po2222stgres
   database: smashub_dev
 
 test:
   <<: *default
-  user: posdfsdfsd2222stgres
   database: smashub_test
 
 production:
