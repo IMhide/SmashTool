@@ -11,7 +11,7 @@ development:
 
 production:
   database: smashub_prod
-  url: ENV['DATABASE_URL']
+  url: <%= ENV['DATABASE_URL'] %>
     
 
 test:
