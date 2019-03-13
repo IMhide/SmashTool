@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  user: postgres
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: smashub_dev
+
+production:
+  <<: *default
+  database: smashub_prod
+
+test:
+  <<: *default
+  database: smashub_test
