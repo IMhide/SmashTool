@@ -9,3 +9,5 @@ end
 
 Schema  = GraphQL::Client.load_schema(GHTTP)
 GraphClient  = GraphQL::Client.new(schema: Schema, execute: GHTTP)
+
+#Stats ak : 2c1c4465447bba4c7b7bf00f2e3d959f
