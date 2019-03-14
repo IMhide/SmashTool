@@ -21,7 +21,7 @@ class SmashGg::GetTournamentsByCountry
     }
   GRAPHQL
 
-  def self.call(country: "FR", page_size: 10)
+  def self.call(country: "FR", page_size: 25)
      results = GraphClient.query(TournamentsQuery, variables: {cCode: country, perPage: page_size}).original_hash.dig('data' ,'tournaments', 'nodes')
      format(results.dup)
   end

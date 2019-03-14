@@ -17,6 +17,7 @@ class Tournaments::CheckNewTournaments < ::BaseService
   def notify(input)
     input[:remote_tournaments].each do |tournament|
       notify_discord(tournament)
+      notify_twitter(tournament)
       sleep 0.5
     end
   end
