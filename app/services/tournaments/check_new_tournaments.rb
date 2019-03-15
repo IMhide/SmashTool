@@ -27,7 +27,7 @@ class Tournaments::CheckNewTournaments < ::BaseService
   def notify_discord(tournament)
     start_at = I18n.l(tournament[:start_at], format: :long)
     ClientDiscord.execute do |builder|
-      builder.content = 'Un nouveau tournois just appeared'
+      builder.content = 'Un nouveau tournoi just appeared'
       builder.add_embed do |embed|
         embed.title = tournament[:name]
         embed.description = "#{tournament[:city]}\nLien: https://smash.gg/#{tournament[:slug]}\n Le: #{start_at}"
@@ -38,7 +38,7 @@ class Tournaments::CheckNewTournaments < ::BaseService
 
   def notify_twitter(tournament)
     start_at = I18n.l(tournament[:start_at], format: :long)
-    tweet = "Un nouveau tournois à #{tournament[:city]}\n#{tournament[:name]}\nLe #{start_at}\nhttps://smash.gg/#{tournament[:slug]}\nLieu: #{tournament[:venue_name]} #{tournament[:address]}"
+    tweet = "Un nouveau tournoi à #{tournament[:city]}\n#{tournament[:name]}\nDebute le #{start_at}\nhttps://smash.gg/#{tournament[:slug]}\nLieu: #{tournament[:venue_name]} #{tournament[:address]}"
     TwitterClient.update(tweet[0, 280])
   end
 end
