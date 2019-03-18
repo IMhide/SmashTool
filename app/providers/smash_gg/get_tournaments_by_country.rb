@@ -8,7 +8,7 @@ class SmashGg::GetTournamentsByCountry
   TournamentsQuery = GraphClient.parse <<-'GRAPHQL'
     query($cCode: String!, $perPage: Int!) {
       tournaments(query: {  perPage: $perPage,
-                            filter: { countryCode: $cCode, upcoming: true },
+                            filter: { countryCode: $cCode, upcoming: true, videogameIds: [1, 1386] },
                             sortBy: "startAt" })
       {
         nodes {
@@ -24,7 +24,6 @@ class SmashGg::GetTournamentsByCountry
                 venueName
                 events {
                   videogame {
-                    id
                     name
             }  
           }
@@ -39,7 +38,7 @@ class SmashGg::GetTournamentsByCountry
   end
 
   def self.videogames(hash)
-    hash['events'].map{|e| e.dig('name')}.uniq
+    hash['events'].map{|e| e.dig('videogame', 'name')}.uniq
   end
 
   def self.format(results)
@@ -53,6 +52,7 @@ class SmashGg::GetTournamentsByCountry
       new_hash[:address] = new_hash.delete('venueAddress')
       new_hash[:google_place_id] = new_hash.delete('mapsPlaceId')
       new_hash[:games] = videogames(hash)
+      new_hash.delete('events')
       new_hash.with_indifferent_access
     end 
   end
