@@ -37,7 +37,7 @@ class Tournaments::CheckNewTournaments < ::BaseService
   end
 
   def notify_twitter(tournament)
-    start_at = I18n.l(tournament[:start_at], format: :long)
+    start_at = I18n.l(tournament[:start_at].in_time_zone, format: :long)
     tweet = "Un nouveau tournoi à #{tournament[:city]} sur #{tournament[:games].join(' et ')}\n#{tournament[:name]}\nDebute le #{start_at}\nhttps://smash.gg/#{tournament[:slug]}\nLieu: #{tournament[:venue_name]} #{tournament[:address]}"
     TwitterClient.update(tweet[0, 280])
   end

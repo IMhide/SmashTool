@@ -24,6 +24,7 @@ class SmashGg::GetTournamentsByCountry
                 venueName
                 events {
                   videogame {
+                    id
                     name
             }  
           }
@@ -38,7 +39,7 @@ class SmashGg::GetTournamentsByCountry
   end
 
   def self.videogames(hash)
-    hash['events'].map{|e| e.dig('videogame', 'name')}.uniq
+    hash['events'].select{|e| e.dig('videogame', 'id')}.map{|e| e.dig('videogame', 'name')}.uniq
   end
 
   def self.format(results)

@@ -3,7 +3,7 @@ require "graphql/client/http"
 
 GHTTP = GraphQL::Client::HTTP.new("https://api.smash.gg/gql/alpha") do
   def headers(context)
-    { "Authorization": "Bearer ef926a96a10fe53f24d940896357e7ac" }
+    { "Authorization": "Bearer #{ENV['SGG_API_TOKEN']}" }
   end
 end
 
