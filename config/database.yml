@@ -1,17 +1,24 @@
 default: &default
   adapter: postgresql
-  host: localhost
-  user: postgres
-  pool: 5
-  timeout: 5000
+  encoding: unicode
+  username:
+  password:
+  template: template0
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV['RAILS_MAX_THREADS'] || 5 %>
 
-development:
+development: &dev
   <<: *default
-  database: smashub_dev
+  database: smash_tool_dev
+  host: localhost
+  port: 5432
+  username: sam
+  password: samsamsam
 
 test:
-  <<: *default
-  database: smashub_test
+  <<: *dev
+  database: smash_tool_test
 
 production:
   url: <%= ENV['DATABASE_URL'] %>
