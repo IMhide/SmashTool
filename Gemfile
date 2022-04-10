@@ -17,6 +17,8 @@ gem 'devise'
 gem 'activeadmin'
 gem 'twitter'
 gem 'bugsnag'
+gem 'coffee-rails', '~> 5.0.0'
+
 
 group :development do
   gem 'bullet'
